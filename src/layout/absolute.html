@@ -1,0 +1,38 @@
+<!--描述
+绝对：此布局允许使用容器中的XY坐标定位项目。-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../ext-6.0.0/build/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet">
+    <script src="../../ext-6.0.0/build/ext-all.js"></script>
+
+    <script type="text/javascript">
+
+
+      Ext.onReady(function() {
+         Ext.create('Ext.container.Container', {
+            renderTo: Ext.getBody(),
+            layout: 'absolute' ,
+            items: [{
+               title: 'Panel 1',
+               x: 50,
+               y: 50,
+               html: 'Positioned at x:50, y:50',
+               width: 500,
+               height: 100
+            },{
+               title: 'Panel 2',
+               x: 200,
+               y: 200,
+               html: 'Positioned at x:100, y:95',
+               width: 500,
+               height: 100
+            }]
+         });
+      });
+   </script>
+</head>
+<body>
+</body>
+</html>

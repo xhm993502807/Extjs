@@ -1,0 +1,155 @@
+<!--
+该布局包含多个字面板，是一个面向应用的UI风格的布局，它将整个容器分为5个部分，
+分别是east, south, west, north, center, 加入到容器中的字面板需要指定region配置项来告知容器需要加入到哪个部分，并且该布局还内建了对面板分割栏的支持。
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <link href="../../ext-6.0.0/build/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet"> -->
+    <link href="../../ext-6.0.0/build/classic/theme-gray/resources/theme-gray-all.css" rel="stylesheet">
+
+    <script src="../../ext-6.0.0/build/ext-all.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function () {
+      Ext.create('Ext.panel.Panel', {
+        renderTo: Ext.getBody(),
+        height: 920,
+        width: '100%',
+        layout: 'border',
+        // defaults: {
+        //   collapsible: true,
+        //   split: true,
+        //   bodyStyle: 'padding:15px'
+        // },
+        items:[{
+          xtype: 'panel',
+          title: '设备列表',
+          width: 350,
+          region: 'west',
+          layout: 'border',
+          collapsible: true,
+          id: 'LeftPanel',
+          items: [
+          {
+            xtype: 'panel',
+            region: 'center',
+            layout: 'border',
+            id: 'EqptTreePanel',
+            items:[
+              {
+                region: 'north',
+                xtype: 'textfield',
+                emptyText: '请输入设备号',
+              },
+              {
+                region: 'center',
+                xtype: 'treepanel',
+                autoScroll: true,
+                id: 'EqptTree',
+              }]
+          }
+        ]
+        },
+
+        {
+          xtype: 'panel',
+          region: 'center',
+          layout: 'border',
+          id: 'CenterPanel',
+          split: true,
+          items: [
+            {
+              xtype: 'panel',
+              title: '已选设备信息',
+              region: 'north',
+              layout: 'fit',
+              height:100,
+              collapsible: true,
+              floatable: false,
+              titleCollapse: true,
+              id: 'EqptInfoPanel',
+              items:[
+                {
+                  xtype: 'panel',
+                  html: '已选设备信息'
+                }
+              ]
+            },
+            {
+              xtype: 'panel',
+              title: '操作提示',
+              width: 180,
+              collapsible: true,
+              layout: 'fit',
+              titleCollapse: true,
+              stateful: true,
+              region: 'east',
+              floatable: false,
+              collapsed: true,
+              id: 'OperateTipPanel',
+              items:[
+                {
+                  xtype: 'panel',
+                  html:'操作提示'
+                }
+              ]
+            },
+            {
+              xtype: 'panel',
+              id: 'mainTabPanel',
+              region: 'center',
+              items:[
+                {
+                  xtype: 'panel',
+                  height:600,
+                  html:'批次列表'
+                }
+              ]
+            },
+            {
+              xtype: 'panel',
+              title: '已选批次',
+              region: 'south',
+              height: 245,
+              layout: 'fit',
+              collapsible: true,
+              floatable: false,
+              titleCollapse: true,
+              id: 'AlreadySelectedPanel',
+              items: [
+                {
+                  xtype: 'panel',
+                  split: true,
+                  flex: 0.5,
+                  layout: 'hbox',
+                  titleCollapse: true,
+                  floatable: false,
+                  items:[
+                    {
+                      xtype: 'panel',
+                      flex: 1,
+                      height: 245,
+                      html: '已选批次'
+                    },
+                    {
+                      xtype: 'panel',
+                      flex: 1,
+                      height: 245,
+                      html: '待出站批次'
+                    }
+                  
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      
+      ]
+      });
+    });
+  </script>
+</head>
+<body>
+</body>
+</html>

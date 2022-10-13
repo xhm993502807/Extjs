@@ -1,0 +1,35 @@
+<!--
+    工具提示：当一些事件发生时，出现的小信息基本上是用于悬停事件。
+-->
+<!DOCTYPE html>
+<html>
+<head>
+   <link href="../../ext-6.0.0/build/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet">
+   <script src="../../ext-6.0.0/build/ext-all.js"></script>
+
+   <script type="text/javascript">
+      Ext.onReady(function() {
+         toolTip = new Ext.ToolTip({       
+            id : 'toolTip',
+            anchor : 'bottom',
+            html : 'This is a basic toolTip',
+            title : 'Tool - Tip Title',
+            //closable : true,
+            closeAction : 'hide'
+         });
+        Ext.create('Ext.Button', {
+            renderTo: Ext.getElementById('buttonId'),
+            text: 'Hover Me',
+            listeners: {
+               mouseover: function() {
+                  toolTip.show();
+               }
+            }
+         });
+      });
+   </script>
+</head>
+<body>
+   <div id = "buttonId"></div>
+</body>
+</html>

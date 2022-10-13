@@ -1,0 +1,49 @@
+<!--
+该布局包含多个字面板，是一个面向应用的UI风格的布局，它将整个容器分为5个部分，
+分别是east, south, west, north, center, 加入到容器中的字面板需要指定region配置项来告知容器需要加入到哪个部分，并且该布局还内建了对面板分割栏的支持。
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../ext-6.0.0/build/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet">
+    <script src="../../ext-6.0.0/build/ext-all.js"></script>
+    <script type="text/javascript">
+    Ext.onReady(function () {
+      Ext.create('Ext.panel.Panel', {
+        renderTo: Ext.getBody(),
+        height: 300,
+        width: 600,
+        layout: 'border',
+        defaults: {
+          collapsible: true,
+          split: true,
+          bodyStyle: 'padding:15px'
+        },
+        items: [{
+          title: 'Panel1',
+          region: 'west',
+          html: 'This is Panel 1'
+        }, {
+          title: 'Panel2',
+          region: 'center',
+          html: 'This is Panel 2'
+        }, {
+          title: 'Panel3',
+          region: 'south',
+          html: 'This is Panel 3'
+        }, {
+          title: 'Panel4',
+          region: 'east',
+          html: 'This is Panel 4'
+        }, {
+          title: 'Panel5',
+          region: 'north',
+          html: 'This is Panel 5'
+        }]
+      });
+    });
+  </script>
+</head>
+<body>
+</body>
+</html>

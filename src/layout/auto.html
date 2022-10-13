@@ -1,0 +1,33 @@
+<!--自动：这是默认布局，根据元素数量决定元素的布局。-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../ext-6.0.0/build/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet">
+    <script src="../../ext-6.0.0/build/ext-all.js"></script>
+    <script type="text/javascript">
+      Ext.onReady(function() {
+         Ext.create('Ext.container.Container', {
+            renderTo : Ext.getBody(),
+            layout : 'auto',
+            width : 600,
+            items : [{
+               title: 'First Component',
+               html : 'This is First Component'
+            },{ 
+               title: 'Second Component',
+               html : 'This is Second Component'
+            },{ 
+               title: 'Third Component',
+               html : 'This is Third Component' 
+            },{ 
+               title: 'Fourth Component',
+               html : 'This is Fourth Component'
+            }]
+         });
+      });
+   </script>
+</head>
+<body>
+</body>
+</html>

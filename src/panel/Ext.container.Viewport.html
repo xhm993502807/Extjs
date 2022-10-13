@@ -1,0 +1,44 @@
+<!--描述
+Ext.container.Viewport：Viewport是一个容器，它会自动调整大小到整个浏览器窗口的大小。 然后，您可以在其中添加其他ExtJS UI组件和容器。-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../ext-6.0.0/build/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet">
+    <script src="../../ext-6.0.0/build/ext-all.js"></script>
+    <script type="text/javascript">
+      Ext.onReady(function () {
+         var childPanel1 = Ext.create('Ext.panel.Panel', {
+             title: 'Child Panel 1',
+             //html: 'A Panel'
+             items: [{
+                xtype: 'container',
+                layout: 'column',
+                items: [{
+               xtype: 'textfield',
+               fieldLabel: 'Text Field1',
+               columnWidth:0.5
+            },{
+               xtype: 'textfield',
+               fieldLabel: 'Text Field2',
+               columnWidth:0.5
+            }]
+             }]
+
+         });
+
+         var childPanel2 = Ext.create('Ext.panel.Panel', {
+             title: 'Child Panel 2',
+             html: 'Another Panel'
+         });
+
+         Ext.create('Ext.container.Viewport', {
+         renderTo: Ext.getBody(),
+             items: [ childPanel1, childPanel2 ]
+         });
+      });
+   </script>
+</head>
+<body>
+</body>
+</html>

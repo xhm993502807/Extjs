@@ -1,0 +1,65 @@
+<!--
+    这种布局用来管理多个子组件，并且在任何时刻只能显示一个子组件。这种布局最常用的情况是向导模式，也就是我们所说的分布提交。
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="../../ext-6.0.0/build/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet">
+  <script src="../../ext-6.0.0/build/ext-all.js"></script>
+  <script type="text/javascript">
+    Ext.application({
+      name: 'HelloExt',
+      launch: function () {
+        var navigate = function (panel, direction) {
+          var layout = panel.getLayout();
+          layout[direction]();
+          Ext.getCmp('move-prev').setDisabled(!layout.getPrev());
+          Ext.getCmp('move-next').setDisabled(!layout.getNext());
+        };
+        Ext.create('Ext.panel.Panel', {
+          title: 'Card布局示例',
+          width: 300,
+          height: 202,
+          layout: 'card',
+          activeItem: 0,
+          x: 30,
+          y: 60,
+          bodyStyle: 'padding:15px',
+          defaults: { border: false },
+          bbar: [{
+            id: 'move-prev',
+            text: '上一步',
+            handler: function (btn) {
+              navigate(btn.up("panel"), "prev");
+            },
+            disabled: true
+          },
+            '->',
+          {
+            id: 'move-next',
+            text: '下一步',
+            handler: function (btn) {
+              navigate(btn.up("panel"), "next");
+            }
+          }],
+          items: [{
+            id: 'card-0',
+            html: '<h1>第一步</h1>'
+          },
+          {
+            id: 'card-1',
+            html: '<h1>第二步</h1>'
+          },
+          {
+            id: 'card-2',
+            html: '<h1>最后一步</h1>'
+          }],
+          renderTo: Ext.getBody()
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+</body>
+</html>
